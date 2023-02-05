@@ -1,13 +1,19 @@
 const express = require('express');
 const connectDB = require('./config/db');
-
+const path = require('path');
+ 
 const app = express();
 
 //Connect Database
 connectDB();  
-
+ 
 //Init Middleware
 app.use(express.json({ extended: false }));
+
+//app.use(express.static("public"));
+
+//get route to serve index.html
+//app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public', 'index.html')));
 
 app.get('/', (req, res) =>  res.send('Hello World!'));
 
