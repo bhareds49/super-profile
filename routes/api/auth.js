@@ -5,7 +5,7 @@ const User = require("../../models/User");
 const jwt = require("jsonwebtoken");
 const config = require("config");
 const { check, validationResult } = require("express-validator");
-const bcrypt = require('bcryptjs');
+const bcrypt = require("bcryptjs");
 
 // @route   GET api/auth
 // @desc    Test route
@@ -46,10 +46,10 @@ router.post(
       }
 
       //compare password
-        const isMatch = await bcrypt.compare(password, user.password);
-        if (!isMatch) {
-            res.status(400).json({ errors: [{ msg: "Invalid credentials" }] });
-        }
+      const isMatch = await bcrypt.compare(password, user.password);
+      if (!isMatch) {
+        res.status(400).json({ errors: [{ msg: "Invalid credentials" }] });
+      }
 
       //return jsonwebtoken
       const payload = {

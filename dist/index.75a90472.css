@@ -13,9 +13,8 @@ body {
 
 .editor-block {
   width: 50%;
-  height: 50%;
   background-color: #fff;
-  border-radius: 15px;
+  border-radius: 5px;
   padding: 16px;
   overflow: auto;
 }
@@ -31,7 +30,7 @@ body {
   width: 50%;
   background-color: #adff2f;
   border: none;
-  border-radius: 15px;
+  border-radius: 5px;
   margin-top: 16px;
   padding: 16px;
   font-size: 24px;
@@ -39,8 +38,9 @@ body {
 }
 
 .save-btn:hover {
+  width: 45%;
   color: #006400;
-  scale: .95;
+  letter-spacing: 8px;
 }
 
 /*# sourceMappingURL=index.75a90472.css.map */
