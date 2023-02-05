@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+  font: 16px Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #d3d3d3;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.editor-block {
+  width: 50%;
+  height: 50%;
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 16px;
+  overflow: auto;
+}
+
+.editor-title {
+  margin-bottom: 16px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.save-btn {
+  color: #000;
+  width: 50%;
+  background-color: #adff2f;
+  border: none;
+  border-radius: 15px;
+  margin-top: 16px;
+  padding: 16px;
+  font-size: 24px;
+  transition: all .5s;
+}
+
+.save-btn:hover {
+  color: #006400;
+  scale: .95;
+}
+
+/*# sourceMappingURL=index.75a90472.css.map */

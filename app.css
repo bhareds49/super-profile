@@ -1,0 +1,49 @@
+* {
+    box-sizing: border-box;
+    font: 16px Arial, Helvetica, sans-serif
+}
+body {
+    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.editor-block {
+    background-color: white;
+    width: 50%;
+    height: 50%;
+    overflow: AUTO;
+    padding: 16px;
+    border-radius: 15px;
+
+}
+
+.editor-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.save-btn {
+    background-color: greenyellow;
+
+    border: none;
+    color: black;
+    font-size: 24px;
+    border-radius: 15px;
+    padding: 16px;
+    margin-top: 16px;
+    width: 50%;
+    transition: .5s;
+}
+
+.save-btn:hover {
+    scale: .95;
+    color: darkgreen;
+
+
+
+}
+
