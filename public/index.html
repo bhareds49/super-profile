@@ -9,16 +9,40 @@
     <title>Document</title>
   </head>
   <body>
-    
     <div class="editor-title">Edit Profile</div>
     <div class="editor-block">
       <div id="editorjs"></div>
     </div>
-    
+
     <button id="save-btn" class="save-btn">save</button>
-    <div class="output" id="js-test"></div> 
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+    <!-- this is to test if the JS loaded properly: <div class="output" id="js-test"></div> -->
+
+    <!-- text input -->
+    <input
+      placeholder="Enter a screename to search for..."
+      class="input-field"
+      type="text"
+      id="username-input"
+    />
     <button id="test-btn" class="save-btn">test api - get single user</button>
-    <div class="output" id="api-test"></div> 
+    <div class="output" id="api-test"></div>
+
+    <input
+      placeholder="Enter email..."
+      class="input-field"
+      type="text"
+      id="email-input"
+    />
+    <input
+      placeholder="Enter password..."
+      class="input-field"
+      type="text"
+      id="pass-input"
+    />
+    <button id="login-btn" class="save-btn">login api</button>
+    <div class="output" id="login-test"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
     <script type="module" src="texteditor.js"></script>

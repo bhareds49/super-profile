@@ -52,3 +52,12 @@ body {
   border-radius: 5px;
   margin-top: 16px;
 }
+
+.input-field {
+  width: 75%;
+  overflow: AUTO;
+  padding: 16px;
+  border-radius: 5px;
+  margin-top: 16px;
+  border: none;
+}
