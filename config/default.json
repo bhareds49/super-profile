@@ -1,4 +1,0 @@
-{
-   "mongoURI": "mongodb+srv://dbAdmin:hello123!@cluster0.tqzr8.mongodb.net/super-profile?retryWrites=true&w=majority",
-   "jwtSecret": "mysecrettoken"
-}
