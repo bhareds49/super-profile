@@ -557,11 +557,10 @@ function hmrAccept(bundle, id) {
 }
 
 },{}],"lzcgM":[function(require,module,exports) {
-//document.getElementById('js-test').innerHTML = 'The test.js file loaded';
 var url = document.location.href;
 user = url.substring(url.lastIndexOf("/") + 1, url.length);
 console.log(user);
-if (user && user != " " && user != "index.html" && user != "getProfile.html") fetch("http://127.0.0.1:5000/api/users/" + user).then((response)=>response.json()).then(function(data) {
+if (user && user != " " && user != "index.html" && user != "findProfile.html" && user != "editProfile.html" && user != "login.html") fetch("http://127.0.0.1:5000/api/users/" + user).then((response)=>response.json()).then(function(data) {
     if (!data.username) document.getElementById("api-test").innerHTML = "That screename does not exist, try another one!";
     else {
         document.getElementById("api-test").innerHTML = data.username;

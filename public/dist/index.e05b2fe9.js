@@ -142,13 +142,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"hfmVG":[function(require,module,exports) {
+})({"feHr9":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "3716a1ab8599f580";
+module.bundle.HMR_BUNDLE_ID = "43061956e05b2fe9";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, globalThis, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -556,54 +556,83 @@ function hmrAccept(bundle, id) {
     });
 }
 
-},{}],"hEacq":[function(require,module,exports) {
+},{}],"lzcgM":[function(require,module,exports) {
+//document.getElementById('js-test').innerHTML = 'The test.js file loaded';
 var url = document.location.href;
 user = url.substring(url.lastIndexOf("/") + 1, url.length);
 console.log(user);
-if (user && user != " " && user != "index.html" && user != "editProfile.html" && user != "findProfile.html") fetch("http://127.0.0.1:5000/api/users/" + user).then((response)=>response.json()).then(function(data) {
-    if (!data.username) {
-        document.getElementById("api-test").innerHTML = "That screename does not exist, try another one!";
-        setTimeout(function() {
-            document.getElementById("api-test").innerHTML = "";
-        }, 2000);
-    } else {
+if (user && user != " " && user != "index.html" && user != "findProfile.html" && user != "editProfile.html" && user != "login.html") fetch("http://127.0.0.1:5000/api/users/" + user).then((response)=>response.json()).then(function(data) {
+    if (!data.username) document.getElementById("api-test").innerHTML = "That screename does not exist, try another one!";
+    else {
         document.getElementById("api-test").innerHTML = data.username;
         document.getElementById("profile-title").innerHTML = "SuperProfile - " + data.username;
     }
 });
-document.getElementById("test-btn").addEventListener("click", function() {
-    const username = document.getElementById("username-input").value;
-    fetch("http://127.0.0.1:5000/api/users/" + username).then((response)=>response.json()).then(function(data) {
-        if (!data.username) {
-            document.getElementById("api-test").innerHTML = "That screename does not exist, try another one!";
-            setTimeout(function() {
-                document.getElementById("api-test").innerHTML = "";
-            }, 2000);
-        } else {
-            document.getElementById("api-test").innerHTML = data.username;
-            document.getElementById("username-input").innerHTML = " ";
-            document.getElementById("profile-title").innerHTML = "SuperProfile - " + data.username;
-            setTimeout(function() {
-                document.getElementById("api-test").innerHTML = "";
-            }, 2000);
+/* document.getElementById("test-btn").addEventListener("click", function () {
+  const username = document.getElementById("username-input").value;
+  fetch("http://127.0.0.1:5000/api/users/" + username)
+    .then((response) => response.json())
+    .then(function (data) {
+      if (!data.username) {
+        document.getElementById("api-test").innerHTML =
+          "That screename does not exist, try another one!";
+      } else {
+        document.getElementById("api-test").innerHTML = data.username;
+        document.getElementById("username-input").innerHTML = " ";
+        document.getElementById("profile-title").innerHTML =
+          "SuperProfile - " + data.username;
+      }
+    });
+}); */ document.getElementById("login-btn").addEventListener("click", function() {
+    const email = document.getElementById("email-input").value;
+    const password = document.getElementById("pass-input").value;
+    fetch("http://localhost:5000/api/auth", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            email,
+            password
+        })
+    }).then((response)=>response.json()).then(function(data) {
+        if (!data.token) document.getElementById("token-test").innerHTML = "Wrong credentials";
+        else {
+            localStorage.setItem("token", data.token);
+            //location.reload();
+            //go to editProfile.html
+            window.location.href = "http://localhost:1234/editProfile.html";
         }
     });
 });
+//when authenticated, a jwt token is stored in local storage
 const token = localStorage.getItem("token");
-if (!token) {
-    //addclass to edit profile button
-    document.getElementById("edit-profile-btn").classList.add("hidden");
-    document.getElementById("logout-btn").classList.remove("save-btn");
-    document.getElementById("logout-btn").classList.add("hidden");
-    document.getElementById("login-btn").classList.remove("hidden");
+//this function parses the token and returns the user id
+function parseJWT(token) {
+    let base64Url = token.split(".")[1];
+    let base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+    let jsonPayload = decodeURIComponent(atob(base64).split("").map(function(c) {
+        return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(""));
+    const decoded = JSON.parse(jsonPayload);
+    return decoded.user.id;
 }
-//logout function
+if (token) console.log(parseJWT(token));
+//this function logsout the user by destorying the token
 document.getElementById("logout-btn").addEventListener("click", function() {
     localStorage.removeItem("token");
-    //reload
     location.reload();
 });
+//this function shows the text editor if the user is logged in
+if (token) {
+    document.getElementById("token-test").innerHTML = "we in here  -   " + localStorage.getItem("token");
+    document.getElementById("editor-block").classList.remove("hidden");
+    document.getElementById("editor-block").classList.add("editor-block");
+    document.getElementById("save-btn").classList.remove("hidden");
+    document.getElementById("save-btn").classList.add("save-btn");
+} else document.getElementById("token-test").innerHTML = "token not here";
+ //use the fetch api to make a post request with email and password body
 
-},{}]},["hfmVG","hEacq"], "hEacq", "parcelRequire8fd9")
+},{}]},["feHr9","lzcgM"], "lzcgM", "parcelRequire8fd9")
 
-//# sourceMappingURL=findProfile.8599f580.js.map
+//# sourceMappingURL=login.e05b2fe9.js.map

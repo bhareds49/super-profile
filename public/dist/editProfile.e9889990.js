@@ -584,6 +584,11 @@ if (token) fetch("http://127.0.0.1:5000/api/users/id/" + parseJWT(token)).then((
 document.getElementById("save-btn").addEventListener("click", function() {
     console.log("save btn clicked");
 });
+//logout function
+document.getElementById("logout-btn").addEventListener("click", function() {
+    localStorage.removeItem("token");
+    window.location.href = "http://localhost:1234/index.html";
+});
 
 },{}]},["3vPEa","6b0sT"], "6b0sT", "parcelRequire8fd9")
 

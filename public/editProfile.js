@@ -43,3 +43,10 @@ if (token) {
 document.getElementById("save-btn").addEventListener("click", function () {
   console.log('save btn clicked');
 });
+
+
+//logout function
+document.getElementById("logout-btn").addEventListener("click", function () {
+  localStorage.removeItem("token");
+  window.location.href = "http://localhost:1234/index.html";
+});
