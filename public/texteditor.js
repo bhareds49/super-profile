@@ -45,9 +45,10 @@ const editor = new EditorJS({
 });
 
 //onclick save button consolelog clicked!
-document.getElementById("save-btn").addEventListener("click", function () {
+/* document.getElementById("save-btn").addEventListener("click", function () {
   console.log("clicked!");
   editor.save().then((outputData) => {
     console.log(outputData);
   });
 });
+ */

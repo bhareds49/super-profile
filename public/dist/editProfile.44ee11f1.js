@@ -142,13 +142,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"k3Iwa":[function(require,module,exports) {
+})({"4RBmQ":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "1655c73c46e5474a";
+module.bundle.HMR_BUNDLE_ID = "31cc20e644ee11f1";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, globalThis, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -556,12 +556,12 @@ function hmrAccept(bundle, id) {
     });
 }
 
-},{}],"1iZrS":[function(require,module,exports) {
+},{}],"7SwCM":[function(require,module,exports) {
 //document.getElementById('js-test').innerHTML = 'The test.js file loaded';
 var url = document.location.href;
 user = url.substring(url.lastIndexOf("/") + 1, url.length);
 console.log(user);
-if (user) fetch("http://127.0.0.1:5000/api/users/" + user).then((response)=>response.json()).then(function(data) {
+if (user && user != " " && user != "index.html" && user != "getProfile.html") fetch("http://127.0.0.1:5000/api/users/" + user).then((response)=>response.json()).then(function(data) {
     if (!data.username) document.getElementById("api-test").innerHTML = "That screename does not exist, try another one!";
     else {
         document.getElementById("api-test").innerHTML = data.username;
@@ -629,6 +629,6 @@ if (token) {
 } else document.getElementById("token-test").innerHTML = "token not here";
  //use the fetch api to make a post request with email and password body
 
-},{}]},["k3Iwa","1iZrS"], "1iZrS", "parcelRequire8fd9")
+},{}]},["4RBmQ","7SwCM"], "7SwCM", "parcelRequire8fd9")
 
-//# sourceMappingURL=index.46e5474a.js.map
+//# sourceMappingURL=index.44ee11f1.js.map

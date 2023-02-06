@@ -142,13 +142,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"k3Iwa":[function(require,module,exports) {
+})({"2yN4c":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "1655c73c46e5474a";
+module.bundle.HMR_BUNDLE_ID = "1c39453e0c04eef9";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, globalThis, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -556,43 +556,23 @@ function hmrAccept(bundle, id) {
     });
 }
 
-},{}],"1iZrS":[function(require,module,exports) {
-//document.getElementById('js-test').innerHTML = 'The test.js file loaded';
-var url = document.location.href;
-user = url.substring(url.lastIndexOf("/") + 1, url.length);
-console.log(user);
-if (user) fetch("http://127.0.0.1:5000/api/users/" + user).then((response)=>response.json()).then(function(data) {
-    if (!data.username) document.getElementById("api-test").innerHTML = "That screename does not exist, try another one!";
-    else {
-        document.getElementById("api-test").innerHTML = data.username;
-        document.getElementById("profile-title").innerHTML = "SuperProfile - " + data.username;
-    }
-});
-document.getElementById("test-btn").addEventListener("click", function() {
+},{}],"35Z7I":[function(require,module,exports) {
+document.getElementById("register-btn").addEventListener("click", function() {
     const username = document.getElementById("username-input").value;
-    fetch("http://127.0.0.1:5000/api/users/" + username).then((response)=>response.json()).then(function(data) {
-        if (!data.username) document.getElementById("api-test").innerHTML = "That screename does not exist, try another one!";
-        else {
-            document.getElementById("api-test").innerHTML = data.username;
-            document.getElementById("username-input").innerHTML = " ";
-            document.getElementById("profile-title").innerHTML = "SuperProfile - " + data.username;
-        }
-    });
-});
-document.getElementById("login-btn").addEventListener("click", function() {
     const email = document.getElementById("email-input").value;
     const password = document.getElementById("pass-input").value;
-    fetch("http://localhost:5000/api/auth", {
+    fetch("http://localhost:5000/api/users", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
+            username,
             email,
             password
         })
     }).then((response)=>response.json()).then(function(data) {
-        if (!data.token) document.getElementById("token-test").innerHTML = "Wrong credentials";
+        if (!data.token) document.getElementById("reg-test").innerHTML = "registration failed";
         else {
             localStorage.setItem("token", data.token);
             //location.reload();
@@ -601,34 +581,7 @@ document.getElementById("login-btn").addEventListener("click", function() {
         }
     });
 });
-//when authenticated, a jwt token is stored in local storage
-const token = localStorage.getItem("token");
-//this function parses the token and returns the user id
-function parseJWT(token) {
-    let base64Url = token.split(".")[1];
-    let base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
-    let jsonPayload = decodeURIComponent(atob(base64).split("").map(function(c) {
-        return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
-    }).join(""));
-    const decoded = JSON.parse(jsonPayload);
-    return decoded.user.id;
-}
-if (token) console.log(parseJWT(token));
-//this function logsout the user by destorying the token
-document.getElementById("logout-btn").addEventListener("click", function() {
-    localStorage.removeItem("token");
-    location.reload();
-});
-//this function shows the text editor if the user is logged in
-if (token) {
-    document.getElementById("token-test").innerHTML = "we in here  -   " + localStorage.getItem("token");
-    document.getElementById("editor-block").classList.remove("hidden");
-    document.getElementById("editor-block").classList.add("editor-block");
-    document.getElementById("save-btn").classList.remove("hidden");
-    document.getElementById("save-btn").classList.add("save-btn");
-} else document.getElementById("token-test").innerHTML = "token not here";
- //use the fetch api to make a post request with email and password body
 
-},{}]},["k3Iwa","1iZrS"], "1iZrS", "parcelRequire8fd9")
+},{}]},["2yN4c","35Z7I"], "35Z7I", "parcelRequire8fd9")
 
-//# sourceMappingURL=index.46e5474a.js.map
+//# sourceMappingURL=register.0c04eef9.js.map
