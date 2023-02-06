@@ -2,6 +2,7 @@
 * {
   box-sizing: border-box;
   font-family: Montserrat, sans-serif;
+  overflow: hidden;
 }
 
 body {
@@ -18,7 +19,7 @@ body {
   background-color: #fff;
   border-radius: 5px;
   padding: 16px;
-  overflow: auto;
+  overflow: hidden;
 }
 
 .editor-title {
@@ -38,17 +39,19 @@ body {
   padding: 16px;
   font-size: 16px;
   transition: all .5s;
+  overflow: hidden;
 }
 
 .save-btn:hover {
-  color: #006400;
-  letter-spacing: 8px;
+  letter-spacing: 2px;
+  overflow: auto;
   scale: .95;
 }
 
 .output {
   width: 75%;
-  background-color: #fff;
+  text-align: center;
+  background-color: #0000;
   border-radius: 5px;
   margin-top: 16px;
   padding: 16px;
@@ -79,7 +82,7 @@ hr {
 input:focus {
   outline: none;
   transition: all .5s;
-  scale: 1.05;
+  scale: .95;
 }
 
 a {
@@ -108,6 +111,60 @@ a:hover {
   align-items: center;
   gap: 16px;
   display: flex;
+}
+
+.search-user {
+  width: 75%;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 16px;
+  display: flex;
+}
+
+@media only screen and (max-width: 600px) {
+  a {
+    font-size: 12px;
+  }
+
+  .save-btn {
+    width: 95%;
+    font-size: 12px;
+  }
+
+  .editor-title {
+    font-size: 16px;
+  }
+
+  .input-field {
+    width: 95%;
+    font-size: 12px;
+  }
+
+  .output {
+    width: 95%;
+    font-size: 10px;
+  }
+
+  .editor-block {
+    width: 95%;
+  }
+
+  .navlinks {
+    width: 95%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4px;
+    display: flex;
+  }
+
+  .search-user {
+    width: 95%;
+    flex-direction: column;
+    gap: 0;
+    display: flex;
+  }
 }
 
 /*# sourceMappingURL=editProfile.df47f21a.css.map */
