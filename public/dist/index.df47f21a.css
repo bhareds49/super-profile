@@ -1,0 +1,85 @@
+@import "https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600&family=Mulish:wght@200;400;500;600;700&family=Nunito+Sans:ital,wght@0,200;0,300;0,600;0,700;1,400&display=swap";
+* {
+  box-sizing: border-box;
+  font-family: Montserrat, sans-serif;
+}
+
+body {
+  background-color: #d3d3d3;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.editor-block {
+  width: 75%;
+  height: 250px;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 16px;
+  overflow: auto;
+}
+
+.editor-title {
+  margin-bottom: 16px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.save-btn {
+  color: #000;
+  width: 75%;
+  cursor: pointer;
+  background-color: #adff2f;
+  border: none;
+  border-radius: 5px;
+  margin-top: 16px;
+  padding: 16px;
+  font-size: 16px;
+  transition: all .5s;
+}
+
+.save-btn:hover {
+  color: #006400;
+  letter-spacing: 8px;
+  scale: 1.05;
+}
+
+.output {
+  width: 75%;
+  background-color: #fff;
+  border-radius: 5px;
+  margin-top: 16px;
+  padding: 16px;
+  overflow: auto;
+}
+
+.input-field {
+  width: 75%;
+  border: none;
+  border-radius: 5px;
+  margin-top: 16px;
+  padding: 16px;
+  transition: all .5s;
+  overflow: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+hr {
+  width: 100%;
+  border: 1px solid #adff2f;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+input:focus {
+  outline: none;
+  transition: all .5s;
+  scale: 1.05;
+}
+
+/*# sourceMappingURL=index.df47f21a.css.map */
