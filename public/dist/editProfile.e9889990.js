@@ -576,10 +576,14 @@ function parseJWT(token) {
     const decoded = JSON.parse(jsonPayload);
     return decoded.user.id;
 }
-if (token) {
-    document.getElementById("profile-title").innerHTML = "SuperProfile - " + parseJWT(token);
-    console.log(parseJWT(token));
-}
+if (token) fetch("http://127.0.0.1:5000/api/users/id/" + parseJWT(token)).then((response)=>response.json()).then(function(data) {
+    console.log(data[0].username);
+    document.getElementById("profile-title").innerHTML = "SuperProfile - " + data[0].username;
+});
+//save btn
+document.getElementById("save-btn").addEventListener("click", function() {
+    console.log("save btn clicked");
+});
 
 },{}]},["3vPEa","6b0sT"], "6b0sT", "parcelRequire8fd9")
 

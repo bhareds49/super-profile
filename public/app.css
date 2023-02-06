@@ -42,7 +42,7 @@ body {
 }
 
 .save-btn:hover {
-  scale: 1.05;
+  scale: .95;
   color: darkgreen;
   letter-spacing: 8px;
 }

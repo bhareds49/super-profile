@@ -1,17 +1,16 @@
-
-
 //when authenticated, a jwt token is stored in local storage
 const token = localStorage.getItem("token");
 
 //this function shows the text editor if the user is logged in
 if (token) {
-    document.getElementById("editor-block").classList.remove("hidden");
-    document.getElementById("editor-block").classList.add("editor-block");
-    document.getElementById("save-btn").classList.remove("hidden");
-    document.getElementById("save-btn").classList.add("save-btn");
-  } else {
-    document.getElementById("profile-title").innerHTML =  "how did you get here? try logging in, bru.";
-  }
+  document.getElementById("editor-block").classList.remove("hidden");
+  document.getElementById("editor-block").classList.add("editor-block");
+  document.getElementById("save-btn").classList.remove("hidden");
+  document.getElementById("save-btn").classList.add("save-btn");
+} else {
+  document.getElementById("profile-title").innerHTML =
+    "how did you get here? try logging in, bru.";
+}
 
 //this function parses the token and returns the user id
 function parseJWT(token) {
@@ -31,7 +30,16 @@ function parseJWT(token) {
 }
 
 if (token) {
-  document.getElementById("profile-title").innerHTML = "SuperProfile - " + parseJWT(token);
-  console.log(parseJWT(token));
+  fetch("http://127.0.0.1:5000/api/users/id/" + parseJWT(token))
+    .then((response) => response.json())
+    .then(function (data) {
+        console.log(data[0].username);
+        document.getElementById("profile-title").innerHTML =
+          "SuperProfile - " + data[0].username;
+      });
 }
-  
+
+//save btn
+document.getElementById("save-btn").addEventListener("click", function () {
+  console.log('save btn clicked');
+});
