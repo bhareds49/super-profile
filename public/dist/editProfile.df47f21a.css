@@ -98,8 +98,7 @@ a {
 }
 
 a:hover {
-  letter-spacing: 8px;
-  scale: 1.05;
+  scale: .95;
 }
 
 .navlinks {

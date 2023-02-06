@@ -99,10 +99,8 @@ a {
 }
 
 a:hover {
-  scale: 1.05;
-  letter-spacing: 8px;
+  scale: 0.95;
 }
-
 
 .navlinks {
   display: flex;
@@ -110,5 +108,5 @@ a:hover {
   align-items: center;
   justify-content: space-between;
   width: 75%;
-  gap:16px;
+  gap: 16px;
 }
